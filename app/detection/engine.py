@@ -171,7 +171,7 @@ class DetectionEngine:
 def highest_severity(findings: list[Finding]) -> Severity:
     if not findings:
         return Severity.INFO
-    return max((item.severity for item in findings), key=SEVERITY_ORDER.get)
+    return max((item.severity for item in findings), key=lambda severity: SEVERITY_ORDER[severity])
 
 
 def _largest_window(events: list[NormalizedEvent], window: timedelta) -> list[NormalizedEvent]:
