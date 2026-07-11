@@ -15,7 +15,7 @@ class WindowsEvtxParser(BaseParser):
 
     def parse_bytes(self, content: bytes) -> list[NormalizedEvent]:
         try:
-            from Evtx.Evtx import Evtx
+            from Evtx.Evtx import Evtx  # type: ignore[import-not-found]
         except ImportError as exc:  # pragma: no cover - dependency is installed in normal builds
             raise LogParseError("python-evtx is required for EVTX analysis") from exc
 
